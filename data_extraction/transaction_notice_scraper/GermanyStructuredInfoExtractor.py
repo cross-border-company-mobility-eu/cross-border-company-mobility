@@ -1,3 +1,4 @@
+
 # Function to remove empty string items from a list of strings
 def removeBlanks(parts):
 	result = []
@@ -8,58 +9,37 @@ def removeBlanks(parts):
 
 # Function to extract German company name from heading text of a notice
 def extractGermanCompanyName(text):
-	#print(text)
 	initialText = text + ""
 	initialText = initialText[37:]
-	#print(initialText)
-	stringparts = initialText.split("\\r\\n\\r\\n")
-	#print(stringparts)
-	#print(stringparts[1])
-	companyNameParts = stringparts[1].split("\\r\\n")
-	#print(companyNameParts)
-	#print(companyNameParts[0])
-	return companyNameParts[0]
-
+	initialText = initialText.lstrip()
+	initialText = initialText[10:]
+	parts = initialText.split('\n\n')
+	if (len(parts) > 0):
+		for item in parts:
+			if ('' != item) and (' ' != item):
+				return item.replace('\n','')
+	else:
+		return initialText.replace('\n','')
+	
 # Function to extract German company registration number
 def extractGermanCompanyRegistrationNumber(text):
 	initialText = text + ""
 	initialText = initialText[20:]
-	initialText = initialText.replace("\\r\\n", "")
-	return initialText
+	parts = initialText.split("(")
+	if (len(parts) == 2):
+		txt = parts[1].replace(")","")
+		return txt.replace('\n','')
+	else:
+		return initialText.replace('\n','')
 
 # Function to extract German company registration number
 def extractTransactionDate(text):
 	initialText = text + ""
 	initialText = initialText[17:]
-	dateParts = initialText.split("\\r\\n")
-	dateParts = removeBlanks(dateParts)
-	return dateParts[0]
+	initialText = initialText.lstrip()#
+	initialText = initialText[:10]
+	return initialText.replace('\n','')
 
 # Function to remove German special characters from file
 def getReadableEntity(text):
-    text = text.replace("\\r\\n", " ")
-    text = text.replace("\\xc3\\xbc", "u")
-    text = text.replace("\\xc3\\xa4", "a")
-    text = text.replace("\\xc2\\xa7", "")
-    text = text.replace("\\xc3\\x9f", "ss")
-    text = text.replace("\\xc3\\xb6", "o")
-    text = text.replace("\\xc3\\x84", "A")
-    text = text.replace("\\xc3\\x9c", "U")
-    text = text.replace("\\xc3\\xa9", "e")
-    text = text.replace("\\xc3\\xa8", "e")
-    text = text.replace("\\xc3\\x96", "O")
-    text = text.replace("\\xc3\\xa0", "a")
-
-    text = text.replace("\r\n", " ")
-    text = text.replace("\xc3\xbc", "u")
-    text = text.replace("\xc3\xa4", "a")
-    text = text.replace("\xc2\xa7", "")
-    text = text.replace("\xc3\x9f", "ss")
-    text = text.replace("\xc3\xb6", "o")
-    text = text.replace("\xc3\x84", "A")
-    text = text.replace("\xc3\x9c", "U")
-    text = text.replace("\xc3\xa9", "e")
-    text = text.replace("\xc3\xa8", "e")
-    text = text.replace("\xc3\x96", "O")
-    text = text.replace("\xc3\xa0", "a")
     return text

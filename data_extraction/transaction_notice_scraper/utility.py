@@ -6,7 +6,7 @@ from textblob import TextBlob
 import string
 
 # Set Google API key
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"]="C:\\Users\\kody.moodley\\Documents\\Coding\\cbcm-be7e7645e0ec.json"
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"]="C:\\Users\\kody.moodley\\Documents\\Coding\\cbcm-254611-42956730c27d.json"
 
 #translator = Translator()                          # initialize translator service
 translate_client = translate.Client()               # Create Google Cloud Translate API service 
@@ -16,33 +16,33 @@ translate_client = translate.Client()               # Create Google Cloud Transl
 # Output:       the text minus the special characters  
 # Notes:        depending on the OS (windows, mac, linux), the number of slashes may change
 def getReadableEntity(text):
-	text = text.replace("\\r\\n", " ")
-	text = text.replace("\\xc3\\xbc", "u")
-	text = text.replace("\\xc3\\xa4", "a")
-	text = text.replace("\\xc2\\xa7", "")
-	text = text.replace("\\xc3\\x9f", "ss")
-	text = text.replace("\\xc3\\xb6", "o")
-	text = text.replace("\\xc3\\x84", "A")
-	text = text.replace("\\xc3\\x9c", "U")
-	text = text.replace("\\xc3\\xa9", "e")
-	text = text.replace("\\xc3\\xa8", "e")
-	text = text.replace("\\xc3\\x96", "O")
-	text = text.replace("\\xc3\\xa0 r", "\\xc3\\xa0.r")
-	text = text.replace("\\xc3\\xa0", "a")
-	text = text.replace("\r\n", " ")
-	text = text.replace("\xc3\xbc", "u")
-	text = text.replace("\xc3\xa4", "a")
-	text = text.replace("\xc2\xa7", "")
-	text = text.replace("\xc3\x9f", "ss")
-	text = text.replace("\xc3\xb6", "o")
-	text = text.replace("\xc3\x84", "A")
-	text = text.replace("\xc3\x9c", "U")
-	text = text.replace("\xc3\xa9", "e")
-	text = text.replace("\xc3\xa8", "e")
-	text = text.replace("\xc3\x96", "O")
-	text = text.replace("\xc3\xa0 r", "\xc3\xa0.r")
-	text = text.replace("\xc3\xa0", "a")
-	text = text.replace("'", "'")
+	# text = text.replace("\\r\\n", " ")
+	# text = text.replace("\\xc3\\xbc", "u")
+	# text = text.replace("\\xc3\\xa4", "a")
+	# text = text.replace("\\xc2\\xa7", "")
+	# text = text.replace("\\xc3\\x9f", "ss")
+	# text = text.replace("\\xc3\\xb6", "o")
+	# text = text.replace("\\xc3\\x84", "A")
+	# text = text.replace("\\xc3\\x9c", "U")
+	# text = text.replace("\\xc3\\xa9", "e")
+	# text = text.replace("\\xc3\\xa8", "e")
+	# text = text.replace("\\xc3\\x96", "O")
+	# text = text.replace("\\xc3\\xa0 r", "\\xc3\\xa0.r")
+	# text = text.replace("\\xc3\\xa0", "a")
+	# text = text.replace("\r\n", " ")
+	# text = text.replace("\xc3\xbc", "u")
+	# text = text.replace("\xc3\xa4", "a")
+	# text = text.replace("\xc2\xa7", "")
+	# text = text.replace("\xc3\x9f", "ss")
+	# text = text.replace("\xc3\xb6", "o")
+	# text = text.replace("\xc3\x84", "A")
+	# text = text.replace("\xc3\x9c", "U")
+	# text = text.replace("\xc3\xa9", "e")
+	# text = text.replace("\xc3\xa8", "e")
+	# text = text.replace("\xc3\x96", "O")
+	# text = text.replace("\xc3\xa0 r", "\xc3\xa0.r")
+	# text = text.replace("\xc3\xa0", "a")
+	# text = text.replace("'", "'")
 	return text
 
 # Identify notices that contain unknown companies
@@ -702,6 +702,7 @@ def cleanCompanyName(companyName):
 	tmp = companyName
 	tmp = tmp.lstrip()
 	tmp = tmp.rstrip()
+	tmp = tmp.replace('\n','')
 	tmp = tmp.translate(str.maketrans('','',string.punctuation))
 	return tmp.lower()
 

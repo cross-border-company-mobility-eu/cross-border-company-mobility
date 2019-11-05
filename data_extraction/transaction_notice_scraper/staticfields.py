@@ -59,16 +59,16 @@ class StaticFields:
 	euMemberStateNames = ['Albania', 'Andorra', 'Austria', 'Azerbaijan', 'Belarus', 'Belgium', 'Bosnia and Herzegovina', 'Bulgaria', 'Croatia', 'Cyprus', 'Czech Republic', 'Denmark', 'Estonia', 'England', 'Finland', 'France', 'Georgia', 'Germany', 'Greece', 'Great Britain', 'Hungary', 'Iceland', 'Ireland', 'Italy', 'Kazakhstan', 'Kosovo', 'Latvia', 'Liechtenstein', 'Lithuania', 'Luxembourg', 'Macedonia', 'Malta', 'Moldova', 'Monaco', 'Montenegro', 'Netherlands', 'Norway', 'Poland', 'Portugal', 'Romania', 'Russia', 'San Marino', 'Serbia', 'Slovakia', 'Slovenia', 'Spain', 'Sweden', 'Switzerland', 'Turkey', 'Ukraine', 'Vatican City', 'United Kingdom']
 
 	# Cross-border (CBM) merger keywords
-	cbm_kw_1 = ['verschmelzung', 'grenz\\xc3\\xbcberschreiten']
+	cbm_kw_1 = ['verschmelzung', 'grenzüberschreitende']
 
-	cbm_kw_2 = ['verschmelzung', '\\xc2\\xa7 122d']
-	cbm_kw_3 = ['verschmelzung', '\\xc2\\xa7 122a']
-	cbm_kw_4 = ['verschmelzung', '\\xc2\\xa7 122j']
+	cbm_kw_2 = ['verschmelzung', '§ 122d']
+	cbm_kw_3 = ['verschmelzung', '§ 122a']
+	cbm_kw_4 = ['verschmelzung', '§ 122j']
 
-	cbm_kw_5 = ['\\xc3\\xbcbernehmen', '\\xc3\\xbcbertragen']
-	cbm_kw_6 = ['aufnehmen', '\\xc3\\xbcbertragen']
-	cbm_kw_7 = ['verschmelzung', '\\xc3\\xbcbertragen']
-	cbm_kw_8 = ['verschmelzung', '\\xc3\\xbcbernehmen']
+	cbm_kw_5 = ['übernehmen', 'übertragen']
+	cbm_kw_6 = ['aufnehmen', 'übertragen']
+	cbm_kw_7 = ['verschmelzung', 'übertragen']
+	cbm_kw_8 = ['verschmelzung', 'übernehmen']
 	cbm_kw_9 = ['verschmelzung', 'aufnehmen']
 	cbm_kw_NOT = ['formwechsel']
 
@@ -89,12 +89,12 @@ class StaticFields:
 	cbm_kw_23 = ['verschmelzung', ' 122 j ']
 
 	# Seat transfer (ST) keywords
-	st_kw_1 = ['formwechsel', 'grenz\\xc3\\xbcberschreiten']
+	st_kw_1 = ['formwechsel', 'grenzüberschreiten']
 	st_kw_2 = ['verschmelzung', 'formwechsel']
 	st_kw_3 = ['sitzver']
 	st_kw_4 = ['neuer sitz']
 	st_kw_5 = ['formwechsel', 'grenzuberschreiten']
-	st_kw_NOT = ['\\xc2\\xa7 122a','\\xc2\\xa7 122j']
+	st_kw_NOT = ['§ 122a','§ 122j']
 	st_kw_NOT2 = ['122a','122j']
 
 	# Societas Europaea (SE) keywords
