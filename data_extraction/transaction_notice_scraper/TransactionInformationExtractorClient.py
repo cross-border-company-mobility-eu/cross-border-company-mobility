@@ -1,5 +1,4 @@
 # User / Client script
-import textract 											# Library for extracting text from PDF file
 import re 													# Regular expression checker for Python
 import sys 													# System libraries
 import os 													# Operating System functions
@@ -20,20 +19,24 @@ def checkCountry(txt):
 
 # Check number of command line arguments
 if (len(sys.argv) != 2):
-	raise Exception('Incorrect number of arguments. Exactly one argument with path to pdf file is required.')
+	raise Exception('Incorrect number of arguments. Exactly one argument with path to a .txt file is required.')
 	sys.exit()
 
 # lower case the input file name
 file_argument = sys.argv[1].lower()
 
 # Check for valid file extension
-if (file_argument[len(file_argument)-4:] != '.pdf'):
-    raise Exception('this is not a valid PDF file')
+if (file_argument[len(file_argument)-4:] != '.txt'):
+    raise Exception('this is not a valid .txt file')
     sys.exit()
 
 # Extract entire PDF into one text variable
-text = textract.process(file_argument)
-txt = str(text)
+with open(file_argument, 'r') as file:
+	data = file.read()
+    #data = file.read().replace('\n', '')
+
+    #text = textract.process(file_argument)
+txt = data
 #print(txt)
 
 # Check which country this notice comes from
@@ -63,7 +66,7 @@ if country == 'DE':																											# If the input file is a Germany r
 	print("Preparing to iterate through notices...")
 	print("----------------------------------------")
 	#for i in range(1, 2):
-	for i in range(0, len(fullNoticeStartIndexes)):
+	for i in range(0, 5):#len(fullNoticeStartIndexes)):
 		#if (i+1 != 2):
 		print("Processing notice " + str(i+1) + " of " + str(len(fullNoticeStartIndexes)))
 		currentRow = []																										# Output data placeholder for current notice info
@@ -85,8 +88,8 @@ if country == 'DE':																											# If the input file is a Germany r
 		g = GermanyNoticeInformationExtractor(noticeText)																	# Initialise Germany notice information extractor
 		candidateCompanies = g.extractPossibleCompanyNames()																# Possible non-german companies
 		companyName = g.extractNonGermanCompany(germanCompanyName)															# Try to extract one 
-		if (len(companyName) == 0):																							# If couldn't find one
-			companyName.extend(candidateCompanies)																			# add the other possibilities found earlier
+		#if (len(companyName) == 0):																							# If couldn't find one
+		companyName.extend(candidateCompanies)																			# add the other possibilities found earlier
 		country = g.extractNonGermanCompanyCountry()																		# Non-german country
 		noticeType = g.getNoticeType()																						# CBM/ST/SE?
 		# Append unstructured data to row
