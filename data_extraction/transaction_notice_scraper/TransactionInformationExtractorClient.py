@@ -66,7 +66,7 @@ if country == 'DE':																											# If the input file is a Germany r
 	print("Preparing to iterate through notices...")
 	print("----------------------------------------")
 	#for i in range(1, 2):
-	for i in range(0, 5):#len(fullNoticeStartIndexes)):
+	for i in range(0, len(fullNoticeStartIndexes)):
 		#if (i+1 != 2):
 		print("Processing notice " + str(i+1) + " of " + str(len(fullNoticeStartIndexes)))
 		currentRow = []																										# Output data placeholder for current notice info
