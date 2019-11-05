@@ -6,7 +6,7 @@ from textblob import TextBlob
 import string
 
 # Set Google API key
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"]="C:\\Users\\kody.moodley\\Documents\\Coding\\cbcm-be7e7645e0ec.json"
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"]="/Users/Marcus/cbcm-254611-42956730c27d.json"
 
 #translator = Translator()                          # initialize translator service
 translate_client = translate.Client()               # Create Google Cloud Translate API service 
