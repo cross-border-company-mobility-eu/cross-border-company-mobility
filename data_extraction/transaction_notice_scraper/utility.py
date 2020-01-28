@@ -1,5 +1,5 @@
 import csv                              # I/O of CSV files
-from google.cloud import translate      # Import translate module from Google Cloud services
+from google.cloud import translate_v2 as translate     # Import translate module from Google Cloud services #MM: updated to newer translation API
 import os                               # Operating system specific methods 
 import re								# Regular expressions library
 from textblob import TextBlob
