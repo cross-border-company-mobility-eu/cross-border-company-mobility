@@ -8,8 +8,8 @@ SELECT
 FROM
 	cross_border_transactions.transaction AS CBT
 	JOIN cross_border_transactions.acquiring_company AS AC ON CBT.ct_id = AC.ac_id
-	JOIN cross_border_transactions.ac_locations AS ACL ON CBT.Acquiring_company_ac_id = ACL.ac_id
-	LEFT JOIN cross_border_transactions.location AS LOC ON ACL.Location_id = LOC.id
+	JOIN cross_border_transactions.ac_locations AS ACL ON CBT.ac_id = ACL.ac_id
+	LEFT JOIN cross_border_transactions.location AS LOC ON ACL.Location_id = LOC.location_id
 WHERE
 	CBT.type = 'CBM'
 	AND(LOC.iso_id = 'AT'
@@ -58,8 +58,8 @@ SELECT
 FROM
 	cross_border_transactions.transaction AS CBT
 	JOIN cross_border_transactions.merging_company AS MC ON CBT.ct_id = MC.mc_id
-	JOIN cross_border_transactions.mc_locations AS MCL ON CBT.Acquiring_company_ac_id = MCL.mc_id
-	LEFT JOIN cross_border_transactions.location AS LOC ON MCL.Location_id = LOC.id
+	JOIN cross_border_transactions.mc_locations AS MCL ON CBT.ac_id = MCL.mc_id
+	LEFT JOIN cross_border_transactions.location AS LOC ON MCL.Location_id = LOC.location_id
 WHERE
 	CBT.type = 'CBM'
 	AND(LOC.iso_id = 'AT'

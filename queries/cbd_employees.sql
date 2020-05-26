@@ -1,7 +1,9 @@
 SELECT CBD.ct_id, 
 CBD.date, 
 LOC.name as country, 
-"RC" as cbm_type,
+"CBD-OC" as company_role,
+AC.name,
+AC.nat_registration_number,
 AC.employee_number as employee_number,
 CASE
            WHEN AC.employee_number = 0 THEN '0'
@@ -16,15 +18,17 @@ CASE
            ELSE "n.a."
         END as employee_group
 FROM cross_border_transactions.transaction as CBD
-JOIN cross_border_transactions.acquiring_company as AC ON CBD.ct_id = AC.ac_id
-JOIN cross_border_transactions.ac_locations as ACL ON CBD.Acquiring_company_ac_id = ACL.ac_id
-LEFT JOIN cross_border_transactions.location as LOC ON ACL.Location_id = LOC.id
+JOIN cross_border_transactions.acquiring_company as AC ON CBD.ac_id = AC.ac_id
+JOIN cross_border_transactions.ac_locations as ACL ON CBD.ac_id = ACL.ac_id
+LEFT JOIN cross_border_transactions.location as LOC ON ACL.Location_id = LOC.location_id
 WHERE CBD.type = "CBD"
 UNION 
 SELECT CBD.ct_id, 
 CBD.date, 
 LOC.name as country, 
-"OC" as cbm_type,
+"CBD-EC" as company_role,
+MC.name,
+MC.nat_registration_number,
 MC.employee_number as employee_number,
 CASE
            WHEN MC.employee_number = 0 THEN '0'
@@ -39,9 +43,9 @@ CASE
            ELSE "n.a."
         END as employee_group
 FROM cross_border_transactions.transaction as CBD
-JOIN cross_border_transactions.merging_company as MC ON CBD.ct_id = MC.mc_id
-JOIN cross_border_transactions.mc_locations as MCL ON CBD.Acquiring_company_ac_id = MCL.mc_id
-LEFT JOIN cross_border_transactions.location as LOC ON MCL.Location_id = LOC.id
+JOIN cross_border_transactions.merging_company as MC ON CBD.mc_id = MC.mc_id
+JOIN cross_border_transactions.mc_locations as MCL ON CBD.mc_id = MCL.mc_id
+LEFT JOIN cross_border_transactions.location as LOC ON MCL.Location_id = LOC.location_id
 WHERE CBD.type = "CBD"
 
 
