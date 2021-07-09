@@ -49,7 +49,7 @@ SELECT
     td.bler_existing AS bler_existing,
     td.bler_to_negotiate AS bler_to_negotiate,
     td.bler_composition AS bler_composition
-FROM (( cross_border_transactions.transaction_view tr
+FROM (( cross_border_transactions.transaction tr
 		JOIN (
 			SELECT *
 			FROM cross_border_transactions.ac_company_locations_view) t1 ON ((tr.ac_id = t1.a_id)))

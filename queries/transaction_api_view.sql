@@ -51,7 +51,7 @@ SELECT
     td.bler_existing AS bler_existing,
     td.bler_to_negotiate AS bler_to_negotiate,
     td.bler_composition AS bler_composition
-FROM (cross_border_transactions.transaction_view tr,
+FROM (cross_border_transactions.transaction tr,
 cross_border_transactions.ac_company_locations_view t1,
 cross_border_transactions.company_locations_view t2)
 LEFT JOIN cross_border_transactions.transaction_details_view td ON tr.ct_id = td.ct_id
