@@ -1,5 +1,4 @@
-![](html/assets/img/CbCM.png)
-
+![](img/CbCM.png)
 
 # Extracting information about a company transaction from a notice file
 
