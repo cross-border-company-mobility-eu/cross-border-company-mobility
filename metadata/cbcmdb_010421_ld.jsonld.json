@@ -1,0 +1,139 @@
+{
+    "@context": "https://schema.org",
+    "@wizardQuestions": {
+        "name": "Provide the name of this entity:",
+        "description": "Give a short description of the content:",
+        "creator": "Provide the details of the person who created, or initiated, the creation of this work:",
+        "contributor": "Other persons who contributed to, or co-authored, the dataset:",
+        "publisher": "Person, or organization, who published this work:",
+        "inLanguage": "What language is used in the description of this dataset? Use ISO 2 language code e.g. EN for English",
+        "version": "What is the version number for this dataset? e.g. 1.1.1 or v1.2",
+        "license": "Link to the full text of the terms of use (license) for this dataset:",
+        "encodingFormat": "What is the file format of this data?",
+        "url": "Link to the website or homepage:",
+        "temporalCoverage": "What is the creation or publishing date range for the documents or contents of this dataset? Use https://en.wikipedia.org/wiki/ISO_8601#Time_intervals format - e.g. 2007-03-01/2008-05-11:",
+        "keywords": "Provide keywords describing the content in this dataset:",
+        "distribution": "Supply a direct download link for this dataset:",
+        "contentSize": "How large is the download file size e.g. 128KB, 54MB, 1.5GB?",
+        "isBasedOn": "Was this dataset generated with the aid of or using a piece of software?",
+        "applicationCategory": "Indicate type of software e.g. Python script or Java GUI application:",
+        "citation": "Is there an academic publication which describes or centrally makes use of this dataset?",
+        "datePublished": "On what date was the dataset published? YYYY-MM-DD",
+        "dateCreated": "On what date was the dataset created? YYYY-MM-DD",
+        "affiliation": "This person is affiliated to or employed by:",
+        "logo": "Link to an image depicting the logo of this organisation:",
+        "image": "Provide a link (URL) to a profile photo of the author of the dataset:",
+        "sameAs": "Provide a Digital Object Identifier (DOI) for this publication:",
+        "frequency": "How often does a new version get published for this dataset? e.g. daily, weekly, monthly"
+    },
+    "@type": "Dataset",
+    "name": "Cross-border Company Mobility in Europe Database",
+    "description": "The data considered for the empirical legal research project consists of a collection of public documents from each member state registry of the European Union.\n\nThe documents concern changes in the legal status of companies involved in cross-border transactions including mergers, divisions and transfers. There is no personal or sensitive information provided in these documents. \n\nThe data used for research output consists of curated information of these documents, e.g. type of transaction, date of registration, companies involved in the transaction, etc.",
+    "version": "v4.0",
+    "url": "https://zenodo.org/record/5248372",
+    "license": "https://raw.githubusercontent.com/maastrichtlawtech/cross-border-company-mobility/master/LICENSE",
+    "encodingFormat": "CSV",
+    "temporalCoverage": "2019-01-01/2029-01-01",
+    "dateCreated": {
+        "@type": "Date",
+        "@value": "2021-04-01"
+    },
+    "datePublished": {
+        "@type": "Date",
+        "@value": "2021-04-01"
+    },
+    "distribution": {
+        "@type": "DataDownload",
+        "contentUrl": {
+            "@type": "URL",
+            "@value": "https://zenodo.org/record/5248372/files/cbcm_database_5_entries_example.csv?download=1"
+        },
+        "encodingFormat": "application/zip",
+        "contentSize": "2.3kb"
+    },
+    "inLanguage": {
+        "@type": "Language",
+        "name": "EN",
+        "alternateName": "EN"
+    },
+    "keywords": [
+        "cross-border mobility",
+        "empirical legal research",
+        "digital legal studies"
+    ],
+    "creator": {
+        "@type": "Person",
+        "name": "concat @givenName @familyName",
+        "givenName": "Pedro V",
+        "familyName": "Hernandez Serrano",
+        "image": "https://www.maastrichtuniversity.nl/sites/default/files/styles/page_photo/public/profile/p.hernandezserrano/p.hernandezserrano_PP%20%287%20of%2013%29.jpg?itok=noOgvTiO&timestamp=1629745201",
+        "jobTitle": "Data Manager",
+        "email": "p.hernandezserrano@maastrichtuniversity.nl",
+        "affiliation": {
+            "@type": "Organization",
+            "name": "Maastricht University",
+            "url": {
+                "@type": "URL",
+                "@value": "https://www.maastrichtuniversity.nl/"
+            }
+        }
+    },
+    "contributor": [
+        {
+            "@type": "Person",
+            "givenName": "Marcus",
+            "familyName": "Meyer",
+            "jobTitle": "Assistant Professor",
+            "email": "marcus.meyer@maastrichtuniversity.nl",
+            "image": "https://www.maastrichtuniversity.nl/sites/default/files/styles/page_photo/public/profile/marcus.meyer/marcus.meyer_MM_profile19.jpg?itok=xbxzXKzi&timestamp=1629745201",
+            "affiliation": {
+                "@type": "Organization",
+                "name": "Maastricht University",
+                "url": {
+                    "@type": "URL",
+                    "@value": "https://www.maastrichtuniversity.nl"
+                }
+            }
+        }
+    ],
+    "isBasedOn": [
+        {
+            "@type": "SoftwareApplication",
+            "name": "CbCM ETL Process",
+            "description": "The software that generates the data extract information from documents and transform it into SQL format",
+            "applicationCategory": "Python script",
+            "operatingSystem": "cross-platform",
+            "version": "1.0",
+            "url": {
+                "@type": "URL",
+                "@value": "https://github.com/maastrichtlawtech/cross-border-company-mobility"
+            }
+        }
+    ],
+    "citation": {
+        "@type": "CreativeWork",
+        "name": "Cross-border Corporate Mobility in the EU: Empirical Findings",
+        "creator": [
+            {
+                "@type": "Person",
+                "name": "Thomas Biermeyer"
+            },
+            {
+                "@type": "Person",
+                "name": "Marcus Meyer"
+            }
+        ],
+        "publisher": {
+            "@type": "Organization",
+            "name": "Social Science Research Network/Elsevier",
+            "url": {
+                "@type": "URL",
+                "@value": "https://www.ssrn.com/index.cfm/en/"
+            }
+        },
+        "sameAs": {
+            "@type": "URL",
+            "@value": "http://dx.doi.org/10.2139/ssrn.3674089"
+        }
+    }
+}
