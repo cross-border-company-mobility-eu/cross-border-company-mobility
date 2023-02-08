@@ -4,6 +4,7 @@ CREATE VIEW cross_border_transactions.view_cross_border_transactions AS
 		tr.ct_id AS ct_id,
 		tr.date AS date,
 		tr.type AS type,
+        tr.type_se AS type_se,
 		tr.researcher AS researcher,
 		tr.comment AS comment,
 		tr.found_registry AS found_registry,

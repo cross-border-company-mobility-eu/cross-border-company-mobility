@@ -1,4 +1,4 @@
-CREATE VIEW cross_border_transactions.company_locations_view AS
+CREATE VIEW cross_border_transactions.view_mc_company_locations AS
 (
 SELECT
 			mc.mc_id AS m_id,
