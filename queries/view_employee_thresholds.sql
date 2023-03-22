@@ -23,7 +23,7 @@ CREATE VIEW cross_border_transactions.view_employee_thresholds AS
 			END as employee_group
 	FROM cross_border_transactions.transaction as CBT
 	JOIN cross_border_transactions.acquiring_company as AC ON CBT.ac_id = AC.ac_id
-	JOIN cross_border_transactions.ac_locations as ACL ON CBT.ac_id = ACL.ac_id
+	LEFT JOIN cross_border_transactions.ac_locations as ACL ON CBT.ac_id = ACL.ac_id
 	LEFT JOIN cross_border_transactions.location as LOC ON ACL.Location_id = LOC.location_id
 	UNION 
 	SELECT CBT.ct_id, 
@@ -49,7 +49,7 @@ CREATE VIEW cross_border_transactions.view_employee_thresholds AS
 			END as employee_group
 	FROM cross_border_transactions.transaction as CBT
 	JOIN cross_border_transactions.merging_company as MC ON CBT.ac_id = MC.mc_id
-	JOIN cross_border_transactions.mc_locations as MCL ON CBT.ac_id = MCL.mc_id
+	LEFT JOIN cross_border_transactions.mc_locations as MCL ON CBT.ac_id = MCL.mc_id
 	LEFT JOIN cross_border_transactions.location as LOC ON MCL.Location_id = LOC.location_id
 	)
 ;
