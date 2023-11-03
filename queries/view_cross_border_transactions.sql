@@ -4,7 +4,6 @@ CREATE VIEW cross_border_transactions.view_cross_border_transactions AS
 		tr.ct_id AS ct_id,
 		tr.date AS date,
 		tr.type AS type,
-        tr.type_se AS type_se,
 		tr.researcher AS researcher,
 		tr.comment AS comment,
 		tr.found_registry AS found_registry,
@@ -79,9 +78,9 @@ CREATE VIEW cross_border_transactions.view_cross_border_transactions AS
 					l.iso_id AS ac_iso,
 					ac.secondary_location AS ac_location2
 				FROM ((( cross_border_transactions.acquiring_company ac
-							JOIN cross_border_transactions.ac_locations al ON ((ac.ac_id = al.ac_id)))
-						JOIN cross_border_transactions.location l ON ((al.Location_id = l.location_id)))
-					JOIN cross_border_transactions.parent_company p ON ((ac.p_id = p.p_id)))) t1 ON ((tr.ac_id = t1.a_id)))
+							LEFT JOIN cross_border_transactions.ac_locations al ON ((ac.ac_id = al.ac_id)))
+						LEFT JOIN cross_border_transactions.location l ON ((al.Location_id = l.location_id)))
+					LEFT JOIN cross_border_transactions.parent_company p ON ((ac.p_id = p.p_id)))) t1 ON ((tr.ac_id = t1.a_id)))
 			JOIN (
 			SELECT
 				mc.mc_id AS m_id,
@@ -96,7 +95,7 @@ CREATE VIEW cross_border_transactions.view_cross_border_transactions AS
 				l.iso_id AS mc_iso,
 				mc.secondary_location AS mc_location2
 			FROM ((cross_border_transactions.merging_company mc
-					JOIN cross_border_transactions.mc_locations ml ON ((mc.mc_id = ml.mc_id)))
-				JOIN cross_border_transactions.location l ON ((ml.Location_id = l.location_id)))) t2 ON ((tr.mc_id = t2.m_id)))
+					LEFT JOIN cross_border_transactions.mc_locations ml ON ((mc.mc_id = ml.mc_id)))
+				LEFT JOIN cross_border_transactions.location l ON ((ml.Location_id = l.location_id)))) t2 ON ((tr.mc_id = t2.m_id)))
 				LEFT JOIN cross_border_transactions.transaction_details td ON tr.ct_id = td.ct_id
 );

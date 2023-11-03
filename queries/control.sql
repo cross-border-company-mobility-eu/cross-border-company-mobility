@@ -8,13 +8,21 @@
 
 -- 2 Acquiring company (cross check with ac_locations) both should have the same `ac_id` count
 -- 16009 on 21-03-2023
-SELECT COUNT(distinct(ac_id)) as count
-FROM cross_border_transactions.acquiring_company
+-- SELECT COUNT(distinct(ac_id)) as count
+-- FROM cross_border_transactions.acquiring_company
 -- 16587 on 21-03-2023
 
--- SELECT COUNT(distinct(ac_id)) as count
+-- SELECT COUNT(*) as count
 -- FROM cross_border_transactions.ac_locations
+
 # ------------------------
+
+
+-- SELECT COUNT(*) as count
+-- FROM cross_border_transactions.merging_company;
+
+SELECT COUNT(distinct(m_id)) as count
+FROM cross_border_transactions.view_merging_companies;
 
 -- SELECT COUNT(distinct(ac_id)) as count
 -- FROM cross_border_transactions.ac_locations
