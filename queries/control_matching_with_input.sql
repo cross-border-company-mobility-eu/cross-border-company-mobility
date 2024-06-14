@@ -17,11 +17,10 @@
 
 # ------------------------
 
-
 -- SELECT COUNT(*) as count
 -- FROM cross_border_transactions.merging_company;
 
-SELECT COUNT(distinct(m_id)) as count
+SELECT COUNT(distinct(mc_id)) as count
 FROM cross_border_transactions.view_merging_companies;
 
 -- SELECT COUNT(distinct(ac_id)) as count
